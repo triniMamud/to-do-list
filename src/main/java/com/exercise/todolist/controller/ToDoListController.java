@@ -24,8 +24,8 @@ public class ToDoListController {
     IFoldersService foldersService;
 
     @GetMapping("/list")
-    public ResponseEntity<List<ItemDtoResponse>> getItemList(HttpServletRequest req) {
-        return new ResponseEntity<>(itemsService.getItemList(req), HttpStatus.OK);
+    public ResponseEntity<List<ItemDtoResponse>> getItemList() {
+        return new ResponseEntity<>(itemsService.getItemList(), HttpStatus.OK);
     }
 
     @PostMapping("/new")
@@ -34,13 +34,13 @@ public class ToDoListController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<ItemDtoResponse> updateItem(@RequestBody @Valid ItemDtoRequest itemRequest, HttpServletRequest req) {
-        return new ResponseEntity<>(itemsService.updateItem(itemRequest, req), HttpStatus.OK);
+    public ResponseEntity<ItemDtoResponse> updateItem(@RequestBody @Valid ItemDtoRequest itemRequest) {
+        return new ResponseEntity<>(itemsService.updateItem(itemRequest), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<Void> deleteItem(@RequestBody @Valid ItemDtoRequest itemRequest, HttpServletRequest req) {
-        return new ResponseEntity<>(itemsService.deleteItem(itemRequest, req), HttpStatus.OK);
+    public ResponseEntity<Void> deleteItem(@RequestBody @Valid ItemDtoRequest itemRequest) {
+        return new ResponseEntity<>(itemsService.deleteItem(itemRequest), HttpStatus.OK);
     }
 
 }
