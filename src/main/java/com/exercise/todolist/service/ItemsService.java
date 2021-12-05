@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -22,8 +24,13 @@ public class ItemsService implements IItemsService{
     IItemsRepository itemsRepository;
 
     @Override
-    public List<ItemDtoResponse> getItemList(HttpServletRequest req) {
-        return null;
+    public List<ItemDtoResponse> getItemList() {
+        List<ItemDtoResponse> listItems = new ArrayList<>();
+        itemsRepository.findAll()
+                .stream()
+                .map(itemList -> listItems.add(new ItemDtoResponse(itemList.getValue())))
+                .collect(Collectors.toList());
+        return listItems;
     }
 
     @Override
@@ -38,7 +45,7 @@ public class ItemsService implements IItemsService{
     }
 
     @Override
-    public ItemDtoResponse updateItem(ItemDtoRequest itemRequest, HttpServletRequest req) {
+    public ItemDtoResponse updateItem(ItemDtoRequest itemRequest) {
         ItemList item = itemsRepository.getItemByValue(itemRequest.getValue());
         item.setValue(itemRequest.getValue());
         itemsRepository.save(item);
@@ -46,7 +53,7 @@ public class ItemsService implements IItemsService{
     }
 
     @Override
-    public Void deleteItem(ItemDtoRequest itemRequest, HttpServletRequest req) {
+    public Void deleteItem(ItemDtoRequest itemRequest) {
         ItemList itemDeleted = itemsRepository.getItemByValue(itemRequest.getValue());
        itemsRepository.deleteById(itemDeleted.getItemId());
         return null;
