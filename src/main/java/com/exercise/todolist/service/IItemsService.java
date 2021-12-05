@@ -10,7 +10,7 @@ import java.util.List;
 public interface IItemsService {
 
     List<ItemDtoResponse> getItemList(HttpServletRequest req);
-    Void createItem(ItemDtoRequest itemRequest, HttpServletRequest req) throws ItemAlreadyExistsOnToDoListException;
+    Void createItem(ItemDtoRequest itemRequest) throws ItemAlreadyExistsOnToDoListException;
     ItemDtoResponse updateItem(ItemDtoRequest itemRequest, HttpServletRequest req);
     Void deleteItem (ItemDtoRequest itemRequest, HttpServletRequest req);
 }

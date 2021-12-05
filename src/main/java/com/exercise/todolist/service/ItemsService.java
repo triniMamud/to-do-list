@@ -27,7 +27,7 @@ public class ItemsService implements IItemsService{
     }
 
     @Override
-    public Void createItem(ItemDtoRequest itemRequest, HttpServletRequest req) throws ItemAlreadyExistsOnToDoListException {
+    public Void createItem(ItemDtoRequest itemRequest) throws ItemAlreadyExistsOnToDoListException {
         if (itemsRepository.existsByItemValue(itemRequest.getValue()))
             throw new ItemAlreadyExistsOnToDoListException(itemRequest.getValue());
 
@@ -39,11 +39,16 @@ public class ItemsService implements IItemsService{
 
     @Override
     public ItemDtoResponse updateItem(ItemDtoRequest itemRequest, HttpServletRequest req) {
+        ItemList item = itemsRepository.getItemByValue(itemRequest.getValue());
+        item.setValue(itemRequest.getValue());
+        itemsRepository.save(item);
         return null;
     }
 
     @Override
     public Void deleteItem(ItemDtoRequest itemRequest, HttpServletRequest req) {
+        ItemList itemDeleted = itemsRepository.getItemByValue(itemRequest.getValue());
+       itemsRepository.deleteById(itemDeleted.getItemId());
         return null;
     }
 }

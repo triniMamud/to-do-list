@@ -29,8 +29,8 @@ public class ToDoListController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<Void> createItem(@RequestBody @Valid ItemDtoRequest itemRequest, HttpServletRequest req) throws ItemAlreadyExistsOnToDoListException {
-        return new ResponseEntity<>(itemsService.createItem(itemRequest, req), HttpStatus.OK);
+    public ResponseEntity<Void> createItem(@RequestBody @Valid ItemDtoRequest itemRequest) throws ItemAlreadyExistsOnToDoListException {
+        return new ResponseEntity<>(itemsService.createItem(itemRequest), HttpStatus.OK);
     }
 
     @PutMapping("/update")
