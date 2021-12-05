@@ -2,22 +2,18 @@ package com.exercise.todolist.service;
 
 import com.exercise.todolist.DTOs.ItemDtoRequest;
 import com.exercise.todolist.DTOs.ItemDtoResponse;
-import com.exercise.todolist.exceptions.ItemAlreadyExistsOnToDoListException;
+import com.exercise.todolist.exceptions.itemsException.ItemAlreadyExistsOnToDoListException;
+import com.exercise.todolist.exceptions.itemsException.ItemNotFoundException;
 import com.exercise.todolist.model.ItemList;
 import com.exercise.todolist.repository.IItemsRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
-@NoArgsConstructor
 public class ItemsService implements IItemsService{
 
     @Autowired
@@ -35,7 +31,7 @@ public class ItemsService implements IItemsService{
 
     @Override
     public Void createItem(ItemDtoRequest itemRequest) throws ItemAlreadyExistsOnToDoListException {
-        if (itemsRepository.existsByItemValue(itemRequest.getValue()))
+        if (itemsRepository.existsByValue(itemRequest.getValue()))
             throw new ItemAlreadyExistsOnToDoListException(itemRequest.getValue());
 
         ItemList item = new ItemList();
@@ -45,7 +41,10 @@ public class ItemsService implements IItemsService{
     }
 
     @Override
-    public ItemDtoResponse updateItem(ItemDtoRequest itemRequest) {
+    public ItemDtoResponse updateItem(ItemDtoRequest itemRequest) throws ItemNotFoundException {
+        if (itemsRepository.existsByValue(itemRequest.getValue()))
+            throw new ItemNotFoundException(itemRequest.getValue());
+
         ItemList item = itemsRepository.getItemByValue(itemRequest.getValue());
         item.setValue(itemRequest.getValue());
         itemsRepository.save(item);
@@ -53,7 +52,10 @@ public class ItemsService implements IItemsService{
     }
 
     @Override
-    public Void deleteItem(ItemDtoRequest itemRequest) {
+    public Void deleteItem(ItemDtoRequest itemRequest) throws ItemNotFoundException {
+        if (!itemsRepository.existsByValue(itemRequest.getValue()))
+            throw new ItemNotFoundException(itemRequest.getValue());
+
         ItemList itemDeleted = itemsRepository.getItemByValue(itemRequest.getValue());
        itemsRepository.deleteById(itemDeleted.getItemId());
         return null;
