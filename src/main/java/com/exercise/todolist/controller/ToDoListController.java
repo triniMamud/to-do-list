@@ -2,6 +2,7 @@ package com.exercise.todolist.controller;
 
 import com.exercise.todolist.DTOs.ItemDtoRequest;
 import com.exercise.todolist.DTOs.ItemDtoResponse;
+import com.exercise.todolist.exceptions.ItemAlreadyExistsOnToDoListException;
 import com.exercise.todolist.service.IFoldersService;
 import com.exercise.todolist.service.IItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ToDoListController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<ItemDtoResponse> createItem(@RequestBody @Valid ItemDtoRequest itemRequest, HttpServletRequest req) {
+    public ResponseEntity<Void> createItem(@RequestBody @Valid ItemDtoRequest itemRequest, HttpServletRequest req) throws ItemAlreadyExistsOnToDoListException {
         return new ResponseEntity<>(itemsService.createItem(itemRequest, req), HttpStatus.OK);
     }
 
