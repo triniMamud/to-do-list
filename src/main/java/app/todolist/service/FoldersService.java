@@ -1,14 +1,11 @@
-package com.exercise.todolist.service;
+package app.todolist.service;
 
-import com.exercise.todolist.DTOs.FolderDtoResponse;
-import com.exercise.todolist.DTOs.ItemDtoResponse;
-import com.exercise.todolist.exceptions.folderException.FolderAlreadyExistsException;
-import com.exercise.todolist.exceptions.folderException.FolderNotFoundException;
-import com.exercise.todolist.exceptions.itemsException.ItemAlreadyExistsOnToDoListException;
-import com.exercise.todolist.exceptions.itemsException.ItemNotFoundException;
-import com.exercise.todolist.model.Folder;
-import com.exercise.todolist.model.ItemList;
-import com.exercise.todolist.repository.IFoldersRepository;
+import app.todolist.exceptions.folderException.FolderAlreadyExistsException;
+import app.todolist.exceptions.folderException.FolderNotFoundException;
+import app.todolist.model.Folder;
+import app.todolist.DTOs.FolderDtoResponse;
+import app.todolist.DTOs.ItemDtoResponse;
+import app.todolist.repository.IFoldersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;

@@ -1,12 +1,10 @@
-package com.exercise.todolist.controller;
+package app.todolist.controller;
 
-import com.exercise.todolist.DTOs.FolderDtoResponse;
-import com.exercise.todolist.DTOs.ItemDtoRequest;
-import com.exercise.todolist.DTOs.ItemDtoResponse;
-import com.exercise.todolist.exceptions.folderException.FolderAlreadyExistsException;
-import com.exercise.todolist.exceptions.folderException.FolderNotFoundException;
-import com.exercise.todolist.exceptions.itemsException.ItemAlreadyExistsOnToDoListException;
-import com.exercise.todolist.service.IFoldersService;
+import app.todolist.exceptions.folderException.FolderAlreadyExistsException;
+import app.todolist.exceptions.folderException.FolderNotFoundException;
+import app.todolist.DTOs.FolderDtoResponse;
+import app.todolist.DTOs.ItemDtoResponse;
+import app.todolist.service.IFoldersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

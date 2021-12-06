@@ -1,4 +1,4 @@
-package com.exercise.todolist.model;
+package app.todolist.model;
 
 import lombok.Data;
 
@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name= "folders")
 public class Folder {
 
     @Id

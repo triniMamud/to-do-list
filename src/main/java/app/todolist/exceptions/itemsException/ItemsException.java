@@ -1,6 +1,6 @@
-package com.exercise.todolist.exceptions.itemsException;
+package app.todolist.exceptions.itemsException;
 
-import com.exercise.todolist.DTOs.ErrorDto;
+import app.todolist.DTOs.ErrorDto;
 import org.springframework.http.HttpStatus;
 
 public class ItemsException extends Exception{

@@ -1,9 +1,9 @@
-package com.exercise.todolist.service;
+package app.todolist.service;
 
-import com.exercise.todolist.DTOs.FolderDtoResponse;
-import com.exercise.todolist.DTOs.ItemDtoResponse;
-import com.exercise.todolist.exceptions.folderException.FolderAlreadyExistsException;
-import com.exercise.todolist.exceptions.folderException.FolderNotFoundException;
+import app.todolist.DTOs.ItemDtoResponse;
+import app.todolist.exceptions.folderException.FolderAlreadyExistsException;
+import app.todolist.exceptions.folderException.FolderNotFoundException;
+import app.todolist.DTOs.FolderDtoResponse;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.exercise.todolist.exceptions.itemsException;
+package app.todolist.exceptions.itemsException;
 
 import org.springframework.http.HttpStatus;
 

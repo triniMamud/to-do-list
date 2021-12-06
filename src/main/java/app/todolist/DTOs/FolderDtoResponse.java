@@ -1,6 +1,5 @@
-package com.exercise.todolist.DTOs;
+package app.todolist.DTOs;
 
-import com.exercise.todolist.model.ItemList;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

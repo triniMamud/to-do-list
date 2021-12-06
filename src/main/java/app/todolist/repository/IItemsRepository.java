@@ -1,6 +1,6 @@
-package com.exercise.todolist.repository;
+package app.todolist.repository;
 
-import com.exercise.todolist.model.ItemList;
+import app.todolist.model.ItemList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

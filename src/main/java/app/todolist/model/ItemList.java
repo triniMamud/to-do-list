@@ -1,8 +1,7 @@
-package com.exercise.todolist.model;
+package app.todolist.model;
 
 import lombok.Data;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
 
 @Entity

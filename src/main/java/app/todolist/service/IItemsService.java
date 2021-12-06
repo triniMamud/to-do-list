@@ -1,9 +1,9 @@
-package com.exercise.todolist.service;
+package app.todolist.service;
 
-import com.exercise.todolist.DTOs.ItemDtoRequest;
-import com.exercise.todolist.DTOs.ItemDtoResponse;
-import com.exercise.todolist.exceptions.itemsException.ItemAlreadyExistsOnToDoListException;
-import com.exercise.todolist.exceptions.itemsException.ItemNotFoundException;
+import app.todolist.DTOs.ItemDtoRequest;
+import app.todolist.DTOs.ItemDtoResponse;
+import app.todolist.exceptions.itemsException.ItemAlreadyExistsOnToDoListException;
+import app.todolist.exceptions.itemsException.ItemNotFoundException;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.exercise.todolist.exceptions.folderException;
+package app.todolist.exceptions.folderException;
 
 import org.springframework.http.HttpStatus;
 

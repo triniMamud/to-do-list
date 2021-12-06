@@ -1,6 +1,6 @@
-package com.exercise.todolist.exceptions.folderException;
+package app.todolist.exceptions.folderException;
 
-import com.exercise.todolist.DTOs.ErrorDto;
+import app.todolist.DTOs.ErrorDto;
 import org.springframework.http.HttpStatus;
 
 public class FolderException extends Exception {

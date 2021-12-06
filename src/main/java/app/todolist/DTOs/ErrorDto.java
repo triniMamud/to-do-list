@@ -1,4 +1,4 @@
-package com.exercise.todolist.DTOs;
+package app.todolist.DTOs;
 
 import lombok.AllArgsConstructor;
 
